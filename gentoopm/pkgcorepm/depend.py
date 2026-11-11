@@ -101,6 +101,8 @@ class PkgCoreUncondDep(PkgCoreBaseDep):
                 yield PkgCoreUncondExactlyOneOfDep(d, self._pkg)
             elif isinstance(d, AtMostOneOfRestriction):
                 yield PkgCoreUncondAtMostOneOfDep(d, self._pkg)
+            elif isinstance(d, str):
+                yield d
             else:
                 raise NotImplementedError("Parsing %s not implemented" % repr(d))
 
